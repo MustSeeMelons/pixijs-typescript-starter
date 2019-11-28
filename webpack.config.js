@@ -1,7 +1,6 @@
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
-// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
     entry: "./src/index.ts",
@@ -16,7 +15,7 @@ module.exports = {
                 use: [{
                     loader: 'file-loader',
                     options: {
-                        "outputPath": "images"
+                        name: '[path][name].[ext]',
                     }
                 }]
             },
@@ -59,7 +58,6 @@ module.exports = {
         port: 8080
     },
     plugins: [
-        // new BundleAnalyzerPlugin(),
         new CleanWebpackPlugin(["dist/*"], {
             watch: true
         }),
